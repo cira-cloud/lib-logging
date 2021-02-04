@@ -40,4 +40,12 @@ describe('Test format(level, service, msg) function', () => {
       logging.format(level, service, msg)
     }).toThrow
   })
+  test('Index exception on parameter level (must be included in level property of the module)', () => {
+    const level = 999
+    const service = 'foo'
+    const msg = 'bar'
+    expect(() => {
+      logging.format(level, service, msg)
+    })
+  })
 })
