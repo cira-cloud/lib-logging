@@ -48,6 +48,10 @@ describe('Test addOptions(options) function', () => {
     logging.addOptions({level:{foo: 1}})
     expect(logging.level).toEqual(expect.not.objectContaining({level:{foo:1}}))
   })
+  test('Add new value to services array', () => {
+    logging.addOptions({services:['foo']})
+    expect(logging.services).toEqual(expect.arrayContaining(['foo']))
+  })
 })
 
 describe('Test getDateTime() function', () => {
