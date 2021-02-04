@@ -4,8 +4,8 @@ const fs = require('fs')
 describe('Test getDateTime() function', () => {
   test('getDateTime must return a string', () => {
     expect(logging.getDateTime()).toBeDefined
-  });
-});
+  })
+})
 
 describe('Test writeLog(msg) function', () => {
   test('Write logfile', () => {
@@ -15,13 +15,29 @@ describe('Test writeLog(msg) function', () => {
     })
   })
 })
-describe('Test format(level, service, msg) function', () => {
+
+describe('Test formatLevel() function', () => {
+  test('Returned value should be NOTE', () => {
+    const level = 1
+    expect(logging.formatLevel(level)).toBe('NOTE')
+  })
+})
+
+describe('Test validateParams(level, service, msg) function', () => {
+  test('Returns true on valid parameters', () => {
+    const level = 1
+    const service = 'server'
+    const msg = 'foo'
+    expect(() => {
+      logging.validateParams(level, service, msg)
+    }).toBeThruthy
+  })
   test('Type exception parameter level not number', () => {
     const level = 'foo'
     const service = 'bar'
     const msg = 'buz'
     expect(() => {
-      logging.format(level, service, msg)
+      logging.validateParams(level, service, msg)
     }).toThrow
   })
   test('Type exception parameter service not string', () => {
@@ -29,7 +45,7 @@ describe('Test format(level, service, msg) function', () => {
     const service = 999
     const msg = 'foo'
     expect(() => {
-      logging.format(level, service, msg)
+      logging.validateParams(level, service, msg)
     }).toThrow
   })
   test('Type exception parameter msg not string', () => {
@@ -37,7 +53,7 @@ describe('Test format(level, service, msg) function', () => {
     const service = 'foo'
     const msg = 999
     expect(() => {
-      logging.format(level, service, msg)
+      logging.validateParams(level, service, msg)
     }).toThrow
   })
   test('Index exception on parameter level (must be included in level property of the module)', () => {
@@ -45,7 +61,7 @@ describe('Test format(level, service, msg) function', () => {
     const service = 'foo'
     const msg = 'bar'
     expect(() => {
-      logging.format(level, service, msg)
+      logging.validateParams(level, service, msg)
     }).toThrow
   })
   test('Index exception on parameter level (must be included in level property of the module)', () => {
@@ -53,7 +69,7 @@ describe('Test format(level, service, msg) function', () => {
     const service = 'foo'
     const msg = 'bar'
     expect(() => {
-      logging.format(level, service, msg)
+      logging.validateParams(level, service, msg)
     }).toThrow
   })
 })
