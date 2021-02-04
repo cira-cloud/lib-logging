@@ -15,3 +15,13 @@ describe('Test writeLog function', () => {
     })
   })
 })
+describe('Test format function', () => {
+  test('Type exception parameter level not number', () => {
+    const level = 'foo'
+    const service = 'bar'
+    const msg = 'buz'
+    expect(() => {
+      logging.format(level, service, msg)
+    }).toThrow
+  })
+})
