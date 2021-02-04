@@ -35,9 +35,18 @@ describe('Test addOptions(options) function', () => {
   test('No duplicates for array services', () => {
     logging.addOptions({services:['server']})
   }).toThrow
+  test('Array content must be string', () => {
+    expect(() => {
+      logging.addOptions({services:[1]})
+    }).toThrow
+  })
   test('Change enableLogging to false', () => {
     logging.addOptions({enableLogging: false})
     expect(logging.enableLogging).not.toBeThruthy
+  })
+  test('Add key-value on level object', () => {
+    logging.addOptions({level:{foo: 1}})
+    expect({foo: 1}).toEqual(expect.not.objectContaining(logging.level))
   })
 })
 
