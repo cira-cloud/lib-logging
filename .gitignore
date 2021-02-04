@@ -1,3 +1,4 @@
 # exclude node modules
 node_modules
-
+# exclude the logfiles
+logs

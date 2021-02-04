@@ -4,7 +4,7 @@
   "description": "Logging libary for the CIRAcloud backend",
   "main": "lib/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "NODE_ENV=dev jest"
   },
   "author": "syr0s <daniel.noetzel@gmail.com>",
   "license": "MIT",
