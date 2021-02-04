@@ -1,6 +1,14 @@
 const logging = require('../lib/index.js')
 const fs = require('fs')
 
+describe('Test addOptions(options) function', () => {
+  test('Exception on parameter options not object', () => {
+    expect(() => {
+      logging.addOptions('foo')
+    }).toThrow
+  })
+})
+
 describe('Test getDateTime() function', () => {
   test('getDateTime must return a string', () => {
     expect(logging.getDateTime()).toBeDefined
