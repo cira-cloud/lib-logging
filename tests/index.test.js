@@ -7,6 +7,38 @@ describe('Test addOptions(options) function', () => {
       logging.addOptions('foo')
     }).toThrow
   })
+  test('Exception on parameter options invalid key', () => {
+    expect(() => {
+      logging.addOptions({foo: 'bar'})
+    }).toThrow
+  })
+  test('Exception on type enableLogging not boolean', () => {
+    expect(() => {
+      logging.addOptions({enableLogging: 'foo'})
+    }).toThrow
+  })
+  test('Exception on type level not number', () => {
+    expect(() => {
+      logging.addOptions({level: 'foo'})
+    }).toThrow
+  })
+  test('Exception on type services not array', () => {
+    expect(() => {
+      logging.addOptions({services: 'foo'})
+    }).toThrow
+  })
+  test('Exception on type options/level not number',() => {
+    expect (() => {
+      logging.addOptions({level:{foo: 'bar'}})
+    }).toThrow
+  })
+  test('No duplicates for array services', () => {
+    logging.addOptions({services:['server']})
+  }).toThrow
+  test('Change enableLogging to false', () => {
+    logging.addOptions({enableLogging: false})
+    expect(logging.enableLogging).not.toBeThruthy
+  })
 })
 
 describe('Test getDateTime() function', () => {
