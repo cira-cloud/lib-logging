@@ -1,14 +1,28 @@
 {
   "name": "lib-logging",
   "version": "1.0.0",
-  "description": "Logging libary for the CIRAcloud backend",
+  "description": "A node.js logging implementation.",
   "main": "lib/index.js",
   "scripts": {
     "test": "NODE_ENV=dev jest"
   },
-  "author": "syr0s <daniel.noetzel@gmail.com>",
+  "author": {
+    "name": "syr0s",
+    "email": "daniel.noetzel@gmail.com",
+    "url": "https://github.com/syr0s"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cira-cloud/lib-logging"
+  },
+  "bugs": "https://github.com/cira-cloud/lib-logging/issues",
   "license": "MIT",
   "devDependencies": {
     "jest": "^26.6.3"
-  }
+  },
+  "files": [
+    "lib/index.js",
+    "README.md",
+    "LICENSE"
+  ]
 }
