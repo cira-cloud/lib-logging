@@ -5,3 +5,10 @@ describe('Test getDateTime function', () => {
     expect(logging.getDateTime()).toBeDefined
   })
 })
+
+describe('Test writeLog function', () = {
+  test('Update logfile', () => {
+    const msg = 'foobar'
+    expect(logging.writeLog(msg))
+  })
+})
