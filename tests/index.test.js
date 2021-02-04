@@ -77,3 +77,11 @@ describe('Test validateParams(level, service, msg) function', () => {
     }).toThrow
   })
 })
+
+describe('Test format(level, service, msg) function', () => {
+  test('Return value should be defined', () => {
+    expect(() => {
+      logging.format(1, 'server', 'foobar')
+    }).toBeDefined
+  })
+})
