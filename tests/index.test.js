@@ -46,7 +46,7 @@ describe('Test addOptions(options) function', () => {
   })
   test('Add key-value on level object', () => {
     logging.addOptions({level:{foo: 1}})
-    expect({foo: 1}).toEqual(expect.not.objectContaining(logging.level))
+    expect(logging.level).toEqual(expect.not.objectContaining({level:{foo:1}}))
   })
 })
 
