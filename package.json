@@ -1,0 +1,14 @@
+{
+  "name": "lib-logging",
+  "version": "1.0.0",
+  "description": "Logging libary for the CIRAcloud backend",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "syr0s <daniel.noetzel@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
