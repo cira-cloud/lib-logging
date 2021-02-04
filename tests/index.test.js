@@ -46,7 +46,7 @@ describe('Test addOptions(options) function', () => {
   })
   test('Add key-value on level object', () => {
     logging.addOptions({level:{foo: 1}})
-    expect({foo:1}).toMatchObject(logging.level)
+    expect(logging.level).toMatchObject({foo: 1})
   })
   test('Add new value to services array', () => {
     logging.addOptions({services:['foo']})
