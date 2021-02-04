@@ -16,11 +16,15 @@ describe('Test writeLog(msg) function', () => {
   })
 })
 
-describe('Test formatLevel() function', () => {
+describe('Test formatLevel(level) function', () => {
   test('Returned value should be NOTE', () => {
     const level = 1
     expect(logging.formatLevel(level)).toBe('NOTE')
   })
+})
+
+describe('Test formatService(service) function', () => {
+  expect(logging.formatService('server')).toBe('SERVER')
 })
 
 describe('Test validateParams(level, service, msg) function', () => {
