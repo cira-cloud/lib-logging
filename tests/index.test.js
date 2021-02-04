@@ -50,7 +50,7 @@ describe('Test addOptions(options) function', () => {
   })
   test('Add new value to services array', () => {
     logging.addOptions({services:['foo']})
-    expect(logging.services).toEqual(expect.arrayContaining(['foo']))
+    expect(logging.services).toEqual(expect.arrayContaining({services:['foo']}))
   })
 })
 
