@@ -1,4 +1,7 @@
 # lib-logging
+![Test](https://github.com/cira-cloud/lib-logging/workflows/Test/badge.svg)
+![Publish](https://github.com/cira-cloud/lib-logging/workflows/Publish/badge.svg)
+
 
 A node.js logging implementation.
 
