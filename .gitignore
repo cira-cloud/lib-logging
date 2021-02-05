@@ -3,4 +3,4 @@ node_modules
 # exclude the logfiles
 logs
 
-.eslintrc.json.old
+.vscode

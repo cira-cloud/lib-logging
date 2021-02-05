@@ -1,10 +1,14 @@
 {
     "env": {
         "node": true,
-        "commonjs": true
+        "commonjs": true,
+        "jest/globals": true
     },
     "extends": "eslint:recommended",
+    "plugins": ["jest"],
     "rules": {
+        "no-case-declarations": "off",
+        "no-inner-declarations": "off",
         "linebreak-style": [
             "error",
             "unix"
