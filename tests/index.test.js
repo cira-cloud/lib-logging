@@ -16,6 +16,11 @@ describe('Test addOptions(options) function', () => {
       logging.addOptions({enableLogging: 'foo'});
     }).toThrow;
   });
+  test('Exception on type callerGlobal not boolean', () => {
+    expect(() => {
+      logging.addOptions({callerGlobal: 'foo'});
+    }).toThrow;
+  });
   test('Exception on type level not number', () => {
     expect(() => {
       logging.addOptions({level: 'foo'});
@@ -43,6 +48,11 @@ describe('Test addOptions(options) function', () => {
     const options = {enableLogging: false};
     logging.addOptions(options);
     expect(logging.enableLogging).not.toBeThruthy;
+  });
+  test('Change callerGlobal to true', () => {
+    const options = {callerGlobal: true};
+    logging.addOptions(options);
+    expect(logging.callerGlobal).toBeThruthy;
   });
   test('Add key-value on level object', () => {
     logging.addOptions({level:{foo: 1}});
@@ -135,6 +145,19 @@ describe('Test format(level, service, msg) function', () => {
   test('Return value should be defined', () => {
     expect(() => {
       logging.format(1, 'server', 'foobar');
+    }).toBeDefined;
+  });
+});
+
+describe('Test log function', () => {
+  test('Return defined value (caller false)', () => {
+    expect(() => {
+      logging.log(1, 'server', 'foobar');
+    }).toBeDefined;
+  });
+  test('Return defined value (caller true', () => {
+    expect(() => {
+      logging.log(1, 'server', 'foobar', true);
     }).toBeDefined;
   });
 });
