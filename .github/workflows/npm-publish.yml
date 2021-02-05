@@ -19,8 +19,7 @@ jobs:
         name: Build
       - run: npx eslint lib tests
       - run: npm test
-        env:
-          CI: true
+
  publish:
     if: github.ref == 'refs/heads/main'
     needs: build
