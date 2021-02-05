@@ -1,4 +1,5 @@
 # lib-logging
+![Node.js Package](https://github.com/cira-cloud/lib-logging/workflows/Node.js%20Package/badge.svg)
 A node.js logging implementation.
 
 ## Installation
