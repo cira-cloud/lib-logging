@@ -22,8 +22,7 @@ jobs:
     - run: npm run build --if-present
     - run: npx eslint lib tests
     - run: npm test
-
- publish:
+  publish:
     if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
