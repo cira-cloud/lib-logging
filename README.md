@@ -28,7 +28,7 @@ logging.log(1, 'server', 'Hello World', true)
 By default `lib-logging` will store all loggings in `./logs/lib-logging.log`. You can disable this feature by using the `addOptions()` function (see configuration for more details).
 
 ## Possible parameters
-The log() function takes three arguments. 
+The log() function takes four arguments. 
 1. `level`: The log level as number (1: Note, 2: Warning, 3: Error)
 2. `service`: The corresponding service triggering the log function, by default `['server', 'cors', 'redis', 'lifesign', 'mariadb']` are possible values
 3. `msg`: The message string to log

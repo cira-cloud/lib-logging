@@ -155,7 +155,7 @@ describe('Test log function', () => {
       logging.log(1, 'server', 'foobar');
     }).toBeDefined;
   });
-  test('Return defined value (caller true', () => {
+  test('Return defined value (caller true)', () => {
     expect(() => {
       logging.log(1, 'server', 'foobar', true);
     }).toBeDefined;
