@@ -39,12 +39,31 @@ To modify the default values of `lib-logging` you can use the `addOptions(option
 ```javascript
 const options = {
   enableLogging: false,
+  logToFile: {
+    note: false
+  },
   level: {
     debug: 4
   },
   services: ['my service'],
   globalCaller: false
-}
-log.addOptions(options)
+};
+log.addOptions(options);
+```
+By default all events will be loged in the file `./logs/lib-logging.log`. You can disable this feature for each loglevel individual, by setting the property in `logToFile` to `false` or disable the whole feature globally by setting `enableLogging` to `false`.
+```javascript
+// disable on loglevel
+logging.addOptions({
+  logToFile: {
+    note: false
+  }
+});
+// disabled on NOTE events
+```
+```javascript
+// disable globally, good idea by using lib-logging in a browser application
+logging.addOptions({
+  enableLogging: false
+});
 ```
 For debugging purposes, you can set the `globalCaller` property to `true`. This will ptovide the additional caller information on all log events.
