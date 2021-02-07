@@ -16,6 +16,11 @@ describe('Test addOptions(options) function', () => {
       logging.addOptions({enableLogging: 'foo'});
     }).toThrow;
   });
+  test('Exception on type logToFile not boolean', () => {
+    expect(() => {
+      logging.addOptions({logToFile: 'foo'});
+    }).toThrow;
+  });
   test('Exception on type callerGlobal not boolean', () => {
     expect(() => {
       logging.addOptions({callerGlobal: 'foo'});
@@ -48,6 +53,17 @@ describe('Test addOptions(options) function', () => {
     const options = {enableLogging: false};
     logging.addOptions(options);
     expect(logging.enableLogging).not.toBeThruthy;
+  });
+  test('Change logToFile parameters', () => {
+    const options = {
+      logToFile: {
+        note: false,
+        warn: false,
+        error: false
+      }
+    };
+    logging.addOptions(options);
+    expect(logging.logToFile).toMatchObject({note:false, warn:false, error:false});
   });
   test('Change callerGlobal to true', () => {
     const options = {callerGlobal: true};
