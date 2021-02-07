@@ -16,6 +16,16 @@ describe('Test addOptions(options) function', () => {
       logging.addOptions({enableLogging: 'foo'});
     }).toThrow;
   });
+  test('Exception on type parameter logToFile not object', () => {
+    expect(() => {
+      logging.addOptions({logToFile: 'foo'});
+    }).toThrow;
+  });
+  test('Exception on type logToFile object content not boolean', () => {
+    expect(() => {
+      logging.addOptions({logToFile: 'foo'});
+    }).toThrow;
+  });
   test('Exception on type callerGlobal not boolean', () => {
     expect(() => {
       logging.addOptions({callerGlobal: 'foo'});
@@ -49,6 +59,17 @@ describe('Test addOptions(options) function', () => {
     logging.addOptions(options);
     expect(logging.enableLogging).not.toBeThruthy;
   });
+  test('Change logToFile parameters', () => {
+    const options = {
+      logToFile: {
+        note: false,
+        warn: false,
+        error: false
+      }
+    };
+    logging.addOptions(options);
+    expect(logging.logToFile).toMatchObject({note:false, warn:false, error:false});
+  });
   test('Change callerGlobal to true', () => {
     const options = {callerGlobal: true};
     logging.addOptions(options);
@@ -57,6 +78,22 @@ describe('Test addOptions(options) function', () => {
   test('Add key-value on level object', () => {
     logging.addOptions({level:{foo: 1}});
     expect(logging.level).toMatchObject({foo: 1});
+  });
+  test('Default on new level object in corresponding logToFile should be true', () => {
+    logging.addOptions({level:{foo: 1}});
+    expect(logging.logToFile).toMatchObject({foo:true});
+  });
+  test('Create new level object and set corresponding logToFile element to false', () => {
+    const options = {
+      level: {
+        foo: 4
+      },
+      logToFile: {
+        foo: false
+      }
+    };
+    logging.addOptions(options);
+    expect(logging.logToFile).toMatchObject({foo:false});
   });
   test('Add new value to services array', () => {
     logging.addOptions({services:['foo']});
