@@ -16,7 +16,12 @@ describe('Test addOptions(options) function', () => {
       logging.addOptions({enableLogging: 'foo'});
     }).toThrow;
   });
-  test('Exception on type logToFile not boolean', () => {
+  test('Exception on type parameter logToFile not object', () => {
+    expect(() => {
+      logging.addOptions({logToFile: 'foo'});
+    }).toThrow;
+  });
+  test('Exception on type logToFile object content not boolean', () => {
     expect(() => {
       logging.addOptions({logToFile: 'foo'});
     }).toThrow;
