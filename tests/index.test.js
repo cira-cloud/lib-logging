@@ -79,6 +79,22 @@ describe('Test addOptions(options) function', () => {
     logging.addOptions({level:{foo: 1}});
     expect(logging.level).toMatchObject({foo: 1});
   });
+  test('Default on new level object in corresponding logToFile should be true', () => {
+    logging.addOptions({level:{foo: 1}});
+    expect(logging.logToFile).toMatchObject({foo:true});
+  });
+  test('Create new level object and set corresponding logToFile element to false', () => {
+    const options = {
+      level: {
+        foo: 4
+      },
+      logToFile: {
+        foo: false
+      }
+    };
+    logging.addOptions(options);
+    expect(logging.logToFile).toMatchObject({foo:false});
+  });
   test('Add new value to services array', () => {
     logging.addOptions({services:['foo']});
     expect(logging.services).toEqual(expect.arrayContaining(['foo']));
